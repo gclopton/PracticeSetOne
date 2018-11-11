@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text");
+
+// Color map.
+$colors: (
+        1: #2c3e50,
+        2: #432e64,
+        3: #2980b9,
+        4: #95a5a6,
+        5: #27ae60,
+        6: #c0392b,
+        7: #c20e9b,
+        8: #f76540,
+        9: #ffcb05,
+        10: #2980b9,
+        11: #9d2933,
+        12: #1f3a93
+);
+
+//For Directive to cycle through $colors map.
+@for $i from 1 through 12 {
+  .thing:nth-of-type(#{$i}) {
+    background-color: map-get($colors, $i);
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  border: 2px solid #2c3e50;
+  border-radius: 6px;
+  color: #2c3e50;
+  font-family: "Crimson Text", serif;
+  letter-spacing: 1.8px;
+  margin-bottom: 22px;
+  padding: 0 0 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 5px;
+  }
+  h4 {
+    margin: 0 0 18px;
+  }
+
+  .wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .choose-one {
+      font-size: 50px;
+    }
+
+    // Organization of header.
+    .split {
+      width: 50%;
+
+      h4 {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+    } //.split
+
+    // Layout choice options.
+    .choice {
+      display: inline-block;
+      float: left;
+      width: calc(100%/3);
+    }
+  } // .wrapper
+} // header
+
+// Wrapper around dynamic grid.
+.container {
+  display: grid;
+  grid-gap: 5px;
+  height: 80vh;
+  width: 100%;
+
+  // Blog layout.
+  &.layout-blog {
+    div {
+      &:nth-of-type(2) {
+        grid-column: 1 / 3;
+        grid-row: 2 / 5;
+      }
+
+      &:nth-of-type(3) {
+        grid-row: 2 / 5;
+      }
+
+      // Hide extras.
+      &:nth-of-type(5),
+      &:nth-of-type(6),
+      &:nth-of-type(7),
+      &:nth-of-type(8),
+      &:nth-of-type(9),
+      &:nth-of-type(10),
+      &:nth-of-type(11),
+      &:nth-of-type(12) {
+        display: none;
+      }
+
+      &:first-of-type,
+      &:nth-of-type(4) {
+        grid-column: 1 / 4;
+      }
+    } // div
+  } // .layout-blog
+
+  // Brick wall layout.
+  &.layout-brick-wall {
+    div {
+      &:first-of-type {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+
+      &:nth-of-type(2) {
+        grid-column: 2 / 4;
+        grid-row: 1;
+      }
+
+      &:nth-of-type(6) {
+        grid-column: 2 / 4;
+        grid-row: 3 / 5;
+      }
+
+      // Hide extras.
+      &:nth-of-type(8),
+      &:nth-of-type(9),
+      &:nth-of-type(10),
+      &:nth-of-type(11),
+      &:nth-of-type(12) {
+        display: none;
+      }
+    } // div
+  } // .brick-wall
+
+  &.layout-media {
+    div {
+      &:first-of-type {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+
+      &:nth-of-type(2) {
+        grid-column: 2 / 4;
+        grid-row: 1;
+      }
+
+      &:nth-of-type(8) {
+        grid-column: 1 / 4;
+      }
+
+      // Hide extras.
+      &:nth-of-type(9),
+      &:nth-of-type(10),
+      &:nth-of-type(11),
+      &:nth-of-type(12) {
+        display: none;
+      }
+    } // div
+  } // .layout-media
+
+  //For Directive for applying column styles.
+  @for $i from 1 through 4 {
+    &.columns-#{$i} {
+      grid-template-columns: repeat($i, 1fr);
+    } // &.columns-#{$i}
+  }
+
+  //For Directive for applying grid-gap styles.
+  @for $i from 10 through 40 {
+    &.gap-#{$i} {
+      grid-gap: 1px *$i;
+    }
+  }
+} // .container
+
+// General thing styles.
+.thing {
+  border-radius: 6px;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+
+  p {
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+  } // p
+} // .thing
+
+// General styles applied to grid examples.
+.example {
+  display: inline-grid;
+  grid-gap: 6px;
+  grid-template-columns: 50% 1fr 1fr;
+  grid-template-rows: 20px 30px 20px;
+  width: 100px;
+
+  div {
+    border: 1px solid #2c3e50;
+    border-radius: 2px;
+    color: #fff;
+  } // div
+} // .example
+
+.grid-ex {
+  div {
+    // Apply gradual colours to example layout.
+    @for $i from 1 through 4 {
+      &:nth-of-type(#{$i}) {
+        background-color: lighten(#2c3e50, $i*10);
+      }
+    }
+
+    &:first-of-type,
+    &:last-of-type {
+      grid-column: 1 / 4;
+    }
+
+    &:nth-of-type(2) {
+      grid-column: 1 / 3;
+      grid-row: 2 / 5;
+    }
+
+    &:nth-of-type(3) {
+      grid-row: 2 / 5;
+    }
+  } // div
+} // .grid-ex
+
+.grid-ex-2 {
+  div {
+    // Apply gradual colours to example layout.
+    @for $i from 1 through 9 {
+      &:nth-of-type(#{$i}) {
+        background-color: lighten(#2c3e50, $i*5);
+      }
+    }
+
+    &:first-of-type {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+
+    &:nth-of-type(2) {
+      grid-column: 2 / 4;
+      grid-row: 1;
+    }
+
+    &:nth-of-type(6) {
+      grid-column: 2 / 4;
+      grid-row: 3 / 5;
+    }
+  } // div
+} // .grid-blog-ex-2
+
+.grid-ex-3 {
+  div {
+    // Apply gradual colours to example layout.
+    @for $i from 1 through 8 {
+      &:nth-of-type(#{$i}) {
+        background-color: lighten(#2c3e50, $i*5);
+      }
+    }
+
+    &:first-of-type {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+
+    &:nth-of-type(2) {
+      grid-column: 2 / 4;
+      grid-row: 1;
+    }
+
+    &:last-of-type {
+      grid-column: 1 / 4;
+    }
+  }
+} // .grid-ex-3
