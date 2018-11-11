@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Welcome to GTCoding</title>
+    <style>
+    *{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    }
+
+    html{
+    height:100%;
+    }
+
+    .wrapper{
+    min-height:100%;
+    width:100%;
+    position:relative;
+    }
+
+    body{
+    height:100%;
+    background:#ddd;
+    }
+
+    h2{
+    padding:50px;
+    background:#112233;
+    color:#f0f1f5;
+    font-family: big john;
+    text-align: center;
+    font-size:30pt;
+    letter-spacing: 15px;
+    }
+
+    .navigationDesktop{
+    background:#fc575e;
+    }
+
+    nav {
+    height:40px;
+    width:560px;
+    display:block;
+    margin:0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    }
+
+    nav a{
+    display:block;
+    text-decoration: none;
+    font-family: monospace;
+    font-weight: bold;
+    font-size:13pt;
+    color:#112233;
+    }
+
+    nav a:hover{
+    background:#223433;
+    color:#f0f1f5;
+    }
+
+    nav ul{
+    list-style: none;
+    }
+
+    nav ul li{
+    float:left;
+    width:140px;
+    height:40px;
+    line-height: 40px;
+    background:#fc575e;
+    }
+
+    nav ul ul li{
+    position:relative;
+    display:none;
+    }
+
+    nav ul ul ul{
+    display:none;
+    }
+
+    nav ul li:hover ul li{
+    display: block;
+    animation: navmenu 500ms forwards;
+    }
+
+    @keyframes navmenu{
+    0%{
+    opacity:0;
+    top:5px;
+    }
+    100%{
+    opacity:1;
+    top:0px;
+    }
+    }
+
+    nav ul ul li:hover ul{
+    display:block;
+    position:absolute;
+    width:140px;
+    left:140px;
+    top:0px;
+    }
+
+    article{
+    padding:10px;
+    font-family: arial;
+    line-height: 40px;
+    }
+
+    footer{
+    border-top:2px solid #fc575e;
+    position: absolute;
+    bottom:0px;
+    padding:20px;
+    width: 100%;
+    text-align: center;
+    background:#112233;
+    color:#fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size:11pt;
+    text-transform: uppercase;
+    }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h2>GTCODING</h2>
+    </header>
+    <div class="navigationDesktop">
+        <nav>
+            <ul>
+                <li><a href="#">Programming</a>
+                    <ul>
+                        <li><a href="#">C++</a></li>
+                        <li><a href="#">C#</a></li>
+                        <li><a href="#">Java</a></li>
+                        <li><a href="#">Web Dev</a>
+                            <ul>
+                                <li><a href="#">Javascript</a></li>
+                                <li><a href="#">PHP</a></li>
+                                <li><a href="#">Ruby</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">OS</a>
+                    <ul>
+                        <li><a href="#">Windows</a></li>
+                        <li><a href="#">Macintosh</a></li>
+                        <li><a href="#">Linux</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Projects</a>
+                    <ul>
+                        <li><a href="#">Android</a></li>
+                        <li><a href="#">iOS</a></li>
+                        <li><a href="#">Web</a></li>
+                        <li><a href="#">Windows</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <article>
+        <p>This is a basic example of how a multi-level navigation bar can be written using html and css. You can further go ahead and make changes to this and create the navigation bar as you want. This is just to show how to get the basics right. You can build on this and customize everything to your needs.</p>
+        <p>I hope that this tutorial helps you understand how to create multi-level navigation bar (dropdown navigation bar). If you like this video please click on the <strong>LIKE</strong> button and don't forget to <strong>SUBSCRIBE</strong> to this channel to get the latest video updates.</p>
+        <p>Thanks for visiting.</p>
+    </article>
+
+    <footer>
+        GTCoding &copy; 2017
+    </footer>
+</div>
+</body>
+</html>
