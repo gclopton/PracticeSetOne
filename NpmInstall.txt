@@ -1,0 +1,9 @@
+npm init
+
+######################################################################################################
+
+npm install --save-dev
+
+######################################################################################################
+
+npm install --save-dev bootstrap browser-sync concat font-awesome gulp-autoprefixer gulp-browserify gulp-clean gulp-concat gulp-jsbeautifier gulp-sass jquery merge-stream mustache popper.js
