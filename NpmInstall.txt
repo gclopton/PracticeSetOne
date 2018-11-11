@@ -11,3 +11,14 @@ npm install --save-dev gulp
 ######################################################################################################
 
 npm install --save-dev bootstrap browser-sync concat font-awesome gulp-autoprefixer gulp-browserify gulp-clean gulp-concat gulp-jsbeautifier gulp-sass jquery merge-stream mustache popper.js
+
+######################################################################################################
+Note#1: If setting this project up on aws run the following commands
+
+$npm init
+$npm install
+$npm install --save-dev
+$npm install --save-dev gulp
+$npm install --global gulp
+
+Note#2: make sure you delete the css_grid.scss file before running gulp
